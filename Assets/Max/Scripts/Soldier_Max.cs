@@ -4,7 +4,7 @@ using System.Collections;
 namespace SpatialPartitionPattern
 {
     //The soldier base class for enemies and friendly
-    public class Soldier
+    public class Soldier_Max
     {
         //To change material
         public MeshRenderer soldierMeshRenderer;
@@ -15,15 +15,15 @@ namespace SpatialPartitionPattern
         //Has to do with the grid, so we can avoid storing all soldiers in an array
         //Instead we are going to use a linked list where all soldiers in the cell 
         //Are linked to each other
-        public Soldier previousSoldier;
-        public Soldier nextSoldier;
+        public Soldier_Max previousSoldier;
+        public Soldier_Max nextSoldier;
 
         //The enemy doesnt need any outside information
         public virtual void Move()
         { }
 
         //The friendly has to move which soldier is the closest
-        public virtual void Move(Soldier soldier)
+        public virtual void Move(Soldier_Max soldier)
         { }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections;
 namespace SpatialPartitionPattern
 {
     //The enemy cube being chased by the spheres
-    public class Enemy : Soldier
+    public class Enemy_Gera : Soldier_Gera
     {
         //The position the soldier is heading for when moving
         Vector3 currentTarget;
@@ -13,11 +13,11 @@ namespace SpatialPartitionPattern
         //The width of the map to generate random coordinated within the map
         float mapWidth;
         //The grid
-        Grid grid;
+        Grid_Gera grid;
 
 
         //Init enemy
-        public Enemy(GameObject soldierObj, float mapWidth, Grid grid)
+        public Enemy_Gera(GameObject soldierObj, float mapWidth, Grid_Gera grid)
         {
             //Save what we need to save
             this.soldierTrans = soldierObj.transform;

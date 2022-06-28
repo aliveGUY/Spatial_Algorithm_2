@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SpatialPartitionPattern
 {
-    public class GameController : MonoBehaviour
+    public class GameController_Vova : MonoBehaviour
     {
         public GameObject friendlyObj;
         public GameObject enemyObj;
@@ -18,11 +18,11 @@ namespace SpatialPartitionPattern
         public Transform friendlyParent;
 
         //Store all soldiers in these lists
-        List<Soldier> enemySoldiers = new List<Soldier>();
-        List<Soldier> friendlySoldiers = new List<Soldier>();
+        List<Soldier_Vova> enemySoldiers = new List<Soldier_Vova>();
+        List<Soldier_Vova> friendlySoldiers = new List<Soldier_Vova>();
 
         //Save the closest enemies to easier change back its material
-        List<Soldier> closestEnemies = new List<Soldier>();
+        List<Soldier_Vova> closestEnemies = new List<Soldier_Vova>();
 
         //Grid data
         float mapWidth = 50f;
@@ -32,13 +32,13 @@ namespace SpatialPartitionPattern
         int numberOfSoldiers = 100;
 
         //The Spatial Partition grid
-        Grid grid;
+        Grid_Vova grid;
 
 
         void Start()
         {
             //Create a new grid
-            grid = new Grid((int)mapWidth, cellSize);
+            grid = new Grid_Vova((int)mapWidth, cellSize);
 
             //Add random enemies and friendly and store them in a list
             for (int i = 0; i < numberOfSoldiers; i++)
@@ -50,7 +50,7 @@ namespace SpatialPartitionPattern
                 GameObject newEnemy = Instantiate(enemyObj, randomPos, Quaternion.identity) as GameObject;
 
                 //Add the enemy to a list
-                enemySoldiers.Add(new Enemy(newEnemy, mapWidth, grid));
+                enemySoldiers.Add(new Enemy_Vova(newEnemy, mapWidth, grid));
 
                 //Parent it
                 newEnemy.transform.parent = enemyParent;
@@ -63,7 +63,7 @@ namespace SpatialPartitionPattern
                 GameObject newFriendly = Instantiate(friendlyObj, randomPos, Quaternion.identity) as GameObject;
 
                 //Add the friendly to a list
-                friendlySoldiers.Add(new Friendly(newFriendly, mapWidth));
+                friendlySoldiers.Add(new Friendly_Vova(newFriendly, mapWidth));
 
                 //Parent it 
                 newFriendly.transform.parent = friendlyParent;
@@ -94,7 +94,7 @@ namespace SpatialPartitionPattern
                 //Soldier closestEnemy = FindClosestEnemySlow(friendlySoldiers[i]);
 
                 //The fast version with spatial partition
-                Soldier closestEnemy = grid.FindClosestEnemy(friendlySoldiers[i]);
+                Soldier_Vova closestEnemy = grid.FindClosestEnemy(friendlySoldiers[i]);
 
                 //If we found an enemy
                 if (closestEnemy != null)
@@ -112,9 +112,9 @@ namespace SpatialPartitionPattern
 
 
         //Find the closest enemy - slow version
-        Soldier FindClosestEnemySlow(Soldier soldier)
+        Soldier_Vova FindClosestEnemySlow(Soldier_Vova soldier)
         {
-            Soldier closestEnemy = null;
+            Soldier_Vova closestEnemy = null;
 
             float bestDistSqr = Mathf.Infinity;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soldier : MonoBehaviour
+public class Soldier_Gera : MonoBehaviour
 {
         //To change material
         public MeshRenderer soldierMeshRenderer;
@@ -13,15 +13,15 @@ public class Soldier : MonoBehaviour
     //Has to do with the grid, so we can avoid storing all soldiers in an array
     //Instead we are going to use a linked list where all soldiers in the cell 
     //Are linked to each other
-    public Soldier previousSoldier;
-    public Soldier nextSoldier;
+    public Soldier_Gera previousSoldier;
+    public Soldier_Gera nextSoldier;
 
     //The enemy doesnt need any outside information
     public virtual void Move()
     { }
 
     //The friendly has to move which soldier is the closest
-    public virtual void Move(Soldier soldier)
+    public virtual void Move(Soldier_Gera soldier)
     { }
 }
 
