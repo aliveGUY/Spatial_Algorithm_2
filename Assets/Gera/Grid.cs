@@ -3,29 +3,29 @@ using System.Collections;
 
 namespace SpatialPartitionPattern
 {
-    public class Grid
+    public class Grid_Gera
     {
         //Need this to convert from world coordinate position to cell position
         int cellSize;
 
         //This is the actual grid, where a soldier is in each cell
         //Each individual soldier links to other soldiers in the same cell
-        Soldier[,] cells;
+        Soldier_Gera[,] cells;
 
 
         //Init the grid
-        public Grid(int mapWidth, int cellSize)
+        public Grid_Gera(int mapWidth, int cellSize)
         {
             this.cellSize = cellSize;
 
             int numberOfCells = mapWidth / cellSize;
 
-            cells = new Soldier[numberOfCells, numberOfCells];
+            cells = new Soldier_Gera[numberOfCells, numberOfCells];
         }
 
 
         //Add a unity to the grid
-        public void Add(Soldier soldier)
+        public void Add(Soldier_Gera soldier)
         {
             //Determine which grid cell the soldier is in
             int cellX = (int)(soldier.soldierTrans.position.x / cellSize);
@@ -47,17 +47,17 @@ namespace SpatialPartitionPattern
 
 
         //Get the closest enemy from the grid
-        public Soldier FindClosestEnemy(Soldier friendlySoldier)
+        public Soldier_Gera FindClosestEnemy(Soldier_Gera friendlySoldier)
         {
             //Determine which grid cell the friendly soldier is in
             int cellX = (int)(friendlySoldier.soldierTrans.position.x / cellSize);
             int cellZ = (int)(friendlySoldier.soldierTrans.position.z / cellSize);
 
             //Get the first enemy in grid
-            Soldier enemy = cells[cellX, cellZ];
+            Soldier_Gera enemy = cells[cellX, cellZ];
 
             //Find the closest soldier of all in the linked list
-            Soldier closestSoldier = null;
+            Soldier_Gera closestSoldier = null;
 
             float bestDistSqr = Mathf.Infinity;
 
@@ -84,7 +84,7 @@ namespace SpatialPartitionPattern
 
 
         //A soldier in the grid has moved, so see if we need to update in which grid the soldier is
-        public void Move(Soldier soldier, Vector3 oldPos)
+        public void Move(Soldier_Gera soldier, Vector3 oldPos)
         {
             //See which cell it was in 
             int oldCellX = (int)(oldPos.x / cellSize);

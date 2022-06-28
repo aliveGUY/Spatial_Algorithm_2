@@ -4,10 +4,10 @@ using System.Collections;
 namespace SpatialPartitionPattern
 {
     //The friendly sphere which is chasing the enemy cubes
-    public class Friendly : Soldier
+    public class Friendly_Vova : Soldier_Vova
     {
         //init friendly
-        public Friendly(GameObject soldierObj, float mapWidth)
+        public Friendly_Vova(GameObject soldierObj, float mapWidth)
         {
             this.soldierTrans = soldierObj.transform;
 
@@ -16,7 +16,7 @@ namespace SpatialPartitionPattern
 
 
         //Move towards the closest enemy - will always move within its grid
-        public override void Move(Soldier closestEnemy)
+        public override void Move(Soldier_Vova closestEnemy)
         {
             //Rotate towards the closest enemy
             soldierTrans.rotation = Quaternion.LookRotation(closestEnemy.soldierTrans.position - soldierTrans.position);

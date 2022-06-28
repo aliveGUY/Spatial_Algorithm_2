@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-
-namespace SpatialPartitionPattern {
-    public class Enemy : Soldier
+namespace SpatialPartitionPattern
+{
+    //The enemy cube being chased by the spheres
+    public class Enemy_Max : Soldier_Max
     {
         //The position the soldier is heading for when moving
         Vector3 currentTarget;
@@ -13,11 +13,11 @@ namespace SpatialPartitionPattern {
         //The width of the map to generate random coordinated within the map
         float mapWidth;
         //The grid
-        Grid grid;
+        Grid_Max grid;
 
 
         //Init enemy
-        public Enemy(GameObject soldierObj, float mapWidth, Grid grid)
+        public Enemy_Max(GameObject soldierObj, float mapWidth, Grid_Max grid)
         {
             //Save what we need to save
             this.soldierTrans = soldierObj.transform;

@@ -5,10 +5,10 @@ using UnityEngine;
 namespace SpatialPartitionPattern
 {
     //The friendly sphere which is chasing the enemy cubes
-    public class Friendly : Soldier
+    public class Friendly_Gera : Soldier_Gera
     {
         //init friendly
-        public Friendly(GameObject soldierObj, float mapWidth)
+        public Friendly_Gera(GameObject soldierObj, float mapWidth)
         {
             this.soldierTrans = soldierObj.transform;
 
@@ -17,7 +17,7 @@ namespace SpatialPartitionPattern
 
 
         //Move towards the closest enemy - will always move within its grid
-        public override void Move(Soldier closestEnemy)
+        public override void Move(Soldier_Gera closestEnemy)
         {
             //Rotate towards the closest enemy
             soldierTrans.rotation = Quaternion.LookRotation(closestEnemy.soldierTrans.position - soldierTrans.position);
